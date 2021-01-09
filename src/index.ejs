@@ -1,0 +1,42 @@
+<%
+const packageJson = require('../package.json');
+const publicUrl = process.env.PUBLIC_URL;
+const title = (packageJson.htmlMeta && packageJson.htmlMeta.title) || packageJson.name;
+const description = (packageJson.htmlMeta && packageJson.htmlMeta.description) || packageJson.description;
+const type = (packageJson.htmlMeta && packageJson.htmlMeta.type) || 'website';
+const siteName = (packageJson.htmlMeta && packageJson.htmlMeta.siteName) || null;
+// noinspection JSUnresolvedVariable
+const themeColor = (packageJson.htmlMeta && packageJson.htmlMeta.themeColor) || null;
+%>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title><%= title %></title>
+        <meta property="og:type" content="<%= type %>" />
+        <meta property="og:title" content="<%= title %>" />
+        <meta property="og:description" content="<%= description %>" />
+        <meta name="description" content="<%= description %>" />
+        <% if(siteName) { %>
+            <meta property="og:site_name" content="<%= siteName %>" />
+        <% } %>
+        <link rel="icon" href="<%= publicUrl %>/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="<%= publicUrl %>/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" sizes="360x360" href="<%= publicUrl %>/apple-touch-icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="manifest" href="<%= publicUrl %>/manifest.json" />
+        <% if(themeColor) { %>
+            <meta name="theme-color" content="<%= themeColor %>" />
+        <% } %>
+    </head>
+    <body>
+        <noscript>
+            <h1>JavaScript is required for this page</h1>
+        </noscript>
+        <input type="url" id="urlInput" /><br>
+        <div id="urlTargetContainer"><a id="urlTarget" target="_blank"></a></div>
+        <div id="debugContainer" style="display: none;">
+            <div id="debugData"></div>
+            <a id="debugReload">Reload</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "link-opener",
+  "version": "0.0.1",
+  "description": "Opens entered links",
+  "main": "",
+  "scripts": {
+    "prod": "yarn build && yarn serve:prod",
+    "serve:prod": "serve dist",
+    "serve:dev": "browser-sync start --server build --files build",
+    "start": "concurrently \"sleep 5 && yarn serve:dev\" \"yarn watch\" --names \"💻,📦\" --prefix name",
+    "build": "static-site-builder build",
+    "now-build": "static-site-builder build",
+    "watch": "static-site-builder watch",
+    "clean": "rm -rf dist build",
+    "deploy": "vercel --prod && vercel rm link-opener --safe --yes"
+  },
+  "author": "henderea",
+  "license": "ISC",
+  "repository": "https://github.com/henderea/link-opener",
+  "devDependencies": {
+    "@henderea/static-site-builder": "^1.9.2",
+    "browser-sync": "^2.26.13",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.14.0",
+    "serve": "^11.3.2",
+    "vercel": "^21.0.0"
+  },
+  "dependencies": {},
+  "htmlMeta": {
+    "type": "",
+    "title": "Link Opener",
+    "description": "Opens entered links",
+    "siteName": "Link Opener - henderea.com",
+    "icon": null,
+    "image": false,
+    "themeColor": "#000000"
+  },
+  "homepage": "/"
+}

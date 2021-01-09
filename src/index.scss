@@ -1,0 +1,16 @@
+#urlTarget, #debugReload {
+  color: #00f;
+
+  &:hover {
+    color: #25f;
+  }
+}
+
+#urlTargetContainer, #debugContainer {
+  margin-top: 5px;
+}
+
+#urlInput {
+  box-sizing: border-box;
+  width:      100%;
+}
