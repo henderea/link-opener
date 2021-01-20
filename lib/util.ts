@@ -2,7 +2,7 @@ function __<T>(handler: (resolve: (param: T) => void, reject: (param: any) => vo
   return new Promise(handler);
 }
 
-const deploymentId: string = process.env.VERCEL_URL ? process.env.VERCEL_URL.replace(/^.*?-([a-zA-Z0-9]+)\.vercel\.app.*$/, '$1') : 'N/A';
+const deploymentId: string = process.env.VERCEL_URL ? process.env.VERCEL_URL.replace(/^.*-([a-zA-Z0-9]+)(-[^-]+)?\.vercel\.app.*$/, '$1') : 'N/A';
 Object.defineProperty(__, 'deployKey', {
   get: () => deploymentId
 });
